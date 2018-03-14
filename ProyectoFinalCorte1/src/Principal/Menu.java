@@ -1,5 +1,7 @@
 package Principal;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
 /**
  *
  * @author Dairo Beltran y Camilo D'isidoro
@@ -7,6 +9,8 @@ import java.util.Scanner;
  */
 public class Menu {
     public void menu(){
+        String ruta = "C:\\Users\\daiyd\\OneDrive\\Documents\\Documentos de la Universidad\\Programación 2\\ProyectoFinalCorte1\\ProyectoFinalCorte1\\archivo.txt";
+        File archivo = new File(ruta);
         int opc=20;
         Scanner leer = new Scanner(System.in);
          while(opc!=0){
@@ -29,13 +33,31 @@ public class Menu {
                         System.out.println("Has salido del programa para poder votar");
                 break;
 
-                case 1:
+                case 1:/*
+                    String saludo="Hola";
+
+                    try{
+                    //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
+                    File archivo=new File("texto.txt");
+                    //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
+                    FileWriter escribir=new FileWriter(archivo,true);
+                    //Escribimos en el archivo con el metodo write
+                    escribir.write(saludo);
+                    //Cerramos la conexion
+                    escribir.close();
+                    }catch(Exception e){//Si existe un problema al escribir cae aqui
+                    System.out.println("Error al escribir");
+                    } */
                 break;
 
                 case 2:
+                    System.out.println("");
                 break;
 
                 case 3:
+                    System.out.println("Cuantas notas desea sacar por estudiante?");
+                    not
+                    
                 break;
 
                 case 4:
@@ -50,5 +72,4 @@ public class Menu {
         }           
     }
 }
-
 

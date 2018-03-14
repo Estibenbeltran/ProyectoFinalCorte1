@@ -14,7 +14,7 @@ import Principal.Menu;
 
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Menu men = new Menu();
         men.menu();
     }
