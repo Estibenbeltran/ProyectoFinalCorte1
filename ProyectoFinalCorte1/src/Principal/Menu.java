@@ -9,7 +9,7 @@ import java.io.FileWriter;
  */
 public class Menu {
     public void menu(){
-        String ruta = "C:\\Users\\daiyd\\OneDrive\\Documents\\Documentos de la Universidad\\Programación 2\\ProyectoFinalCorte1\\ProyectoFinalCorte1\\archivo.txt";
+        String ruta = "D:\\Documentos\\Universidad\\Prog 2\\Proyecto Corte 1\\ProyectoFinalCorte1\\ProyectoFinalCorte1\\archivo.txt";
         File archivo = new File(ruta);
         int opc=20;
         Scanner leer = new Scanner(System.in);
@@ -30,15 +30,12 @@ public class Menu {
             switch(opc){
                 case 0:
                 //aqui se finaliza el programa
-                        System.out.println("Has salido del programa para poder votar");
+                        System.out.println("Has salido del programa");
                 break;
 
-                case 1:/*
+                case 1:
                     String saludo="Hola";
-
                     try{
-                    //Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
-                    File archivo=new File("texto.txt");
                     //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
                     FileWriter escribir=new FileWriter(archivo,true);
                     //Escribimos en el archivo con el metodo write
@@ -47,7 +44,7 @@ public class Menu {
                     escribir.close();
                     }catch(Exception e){//Si existe un problema al escribir cae aqui
                     System.out.println("Error al escribir");
-                    } */
+                    } 
                 break;
 
                 case 2:
