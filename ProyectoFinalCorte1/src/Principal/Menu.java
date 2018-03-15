@@ -55,9 +55,18 @@ public class Menu {
                 break;
 
                 case 3:
+                    int num;
                     System.out.println("Cuantas notas desea sacar por estudiante?");
-                    not
-                    
+                    num = leer.nextInt();
+                    while(num<=0){
+                        System.out.println("Nota inválida");
+                        num = leer.nextInt();
+                    }
+                    float [] notas = new float[num];
+                    for(int i=0; i<num; i++){
+                        System.out.println("Ingresa la nota del estudiante numero "+i+1);
+                        notas[i] = leer.nextFloat();
+                    }
                 break;
 
                 case 4:

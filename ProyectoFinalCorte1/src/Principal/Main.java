@@ -1,5 +1,8 @@
-package principal;
+package Principal;
 import Principal.Menu;
+import Principal.InteColegio;
+import Principal.Estudiante;
+import Principal.Docente;
 /**
  *
  * @version 1.0
