@@ -4,9 +4,6 @@ import Principal.InteColegio;
 import Principal.Estudiante;
 import Principal.Docente;
 /**
- *
- * @version 1.0
- * @author Dairo Estiben Beltran Martinez y Camil oAndrés D'isidoro Flechas
  * Este ejercicio consta de los siguientes requerimnetos:
  * 1.El programa debe gestionar:  docentes y alumnos. (Crear y eliminar del archivo plano), crear curso, materias
  * y asignar estudiantes (Dinámica). Listado de docentes y alumnos ya precargado en el archivo plano. 
@@ -14,11 +11,15 @@ import Principal.Docente;
  * 3.El sistema debe mostrar el listado de alumnos por materia, sus notas y su nota final. 
  * 4.El sistema debe mostrar lo mejores 5 promedios por materia.
  * 5.El sistema debe generar el listado de docentes y sus materias. 
+ * @version 1.0
+ * @author Dairo Estiben Beltran Martinez y Camil oAndrés D'isidoro Flechas
  */
 public class Main {
     public static void main(String[] args){
+        /**
+         * Genera el objeto menu, y llama la funcion para invocarlo
+         */
         Menu men = new Menu();
         men.menu();
     }
 }
-
