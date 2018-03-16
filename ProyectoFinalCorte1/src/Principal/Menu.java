@@ -11,16 +11,18 @@ public class Menu {
         String ruta = "D:\\Documentos\\Universidad\\Prog 2\\Proyecto Corte 1\\ProyectoFinalCorte1\\ProyectoFinalCorte1\\archivo.txt";
         File archivo = new File(ruta);
         int opc=20;
+        Estudiante estudiantes = new Estudiante("","","",0, 0, 0);
+        Docente profesores = new Docente("", "", "", 0, 0, 0);
         Scanner leer = new Scanner(System.in);
          while(opc!=0){
             System.out.println("Bienvenido, que desea hacer?"); 
-            System.out.println("1)Ver la lista de docentes y estudiantes");
-            System.out.println("2)Crear curso, materias y asignar estudiantes");
-            System.out.println("3)Ingresar notas a los estudiantes");
-            System.out.println("4)Ver el listado de alumnos (por materia), sus notas y su promedio final");
-            System.out.println("5)Ver los mejores 5 estudiantes por materia");
-            System.out.println("6)Ver el listado de docentes y sus materias");
-            System.out.println("7) Eliminar Registros");
+            System.out.println("1)Ver la lista de docentes y estudiantes");                                                                  //PENDIENTE
+            System.out.println("2)Crear curso, materias y asignar estudiantes");                                                        //PENDIENTE
+            System.out.println("3)Ingresar notas a los estudiantes");                                                                             //PENDIENTE
+            System.out.println("4)Ver el listado de alumnos (por materia), sus notas y su promedio final");          //PENDIENTE
+            System.out.println("5)Ver los mejores 5 estudiantes por materia");                                                          //PENDIENTE
+            System.out.println("6)Ver el listado de docentes y sus materias");                                                            //PENDIENTE
+            System.out.println("7) Eliminar Registros");                                                                                                    //PENDIENTE
             System.out.println("0)Salir");
             opc = leer.nextInt();
             while(opc<0 || opc>7){//validacion de la opcion
@@ -53,6 +55,8 @@ public class Menu {
                     //Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
                     BufferedWriter escribir = new BufferedWriter(new FileWriter(new File("archivo.txt")));
                     //Escribimos en el archivo con el metodo write
+                    System.out.println("Digite el nombre de la materia");
+                    
                     escribir.write("Meme");
                     //Cerramos la conexion
                     escribir.close();

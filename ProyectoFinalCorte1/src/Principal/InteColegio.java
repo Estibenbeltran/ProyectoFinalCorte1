@@ -1,10 +1,13 @@
 package Principal;
+
+import java.io.*;
+
 /**
  *
  * @author daiyd
  */
 
-public class InteColegio {
+public class InteColegio implements Serializable{
     private String nombre, apellido, materia;
     private long codigo;
     private int numNotas;
@@ -57,4 +60,15 @@ public class InteColegio {
     public int getNotas(){
         return this.numNotas;
     }
+private void readObject(java.io.ObjectInputStream stream)
+     throws IOException, ClassNotFoundException
+{
+   // Aqui debemos leer los bytes de stream y reconstruir el objeto
+}
+
+private void writeObject(java.io.ObjectOutputStream stream)
+     throws IOException
+{
+   // Aquí escribimos en stream los bytes que queramos que se envien por red.
+}
 }
