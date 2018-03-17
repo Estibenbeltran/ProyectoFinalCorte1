@@ -3,6 +3,8 @@ import Principal.Menu;
 import Principal.InteColegio;
 import Principal.Estudiante;
 import Principal.Docente;
+import Principal.Materia;
+import Principal.Files;
 /**
  * Este ejercicio consta de los siguientes requerimnetos:
  * 1.El programa debe gestionar:  docentes y alumnos. (Crear y eliminar del archivo plano), crear curso, materias
@@ -19,7 +21,8 @@ public class Main {
         /**
          * Genera el objeto menu, y llama la funcion para invocarlo
          */
-        Menu men = new Menu();
+         Menu men = new Menu();
+        
         men.menu();
     }
 }

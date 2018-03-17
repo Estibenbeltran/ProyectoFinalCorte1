@@ -1,121 +1,91 @@
 package Principal;
-import java.io.*;
+import java.util.Scanner;
 /**
  * Permitira inicializar las personas Integrantes del Colegio como la clase padre
  * @author Camilo D'isidoro
  */
-public class InteColegio implements Serializable{
-    private String nombre, apellido, materia;
-    private long codigo;
-    private int numNotas;
-    /**
-     * Este constructor permitirá tener l nombre, apellido, materia, codigo y numero de notas
-     * tanto de los estudiantes como de los docentes
-     */
-    /**
-     * Constructor de la persona
-     * @param nombre
-     * @param apellido
-     * @param materia
-     * @param codigo
-     * @param numNotas 
-     */
-    public InteColegio(String nombre, String apellido, String materia, long codigo, int numNotas){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.materia = materia;
-        this.codigo = codigo;
-        this.numNotas = numNotas;
+public class InteColegio extends Materia{
+    private static int cantidadCursosCreados=0;
+    public static String cursos[]=new String[50];
+    private String asignacionCurso="Ninguno";
+    public InteColegio(String _asignacionMateria,String _asignacionCurso) {
+        super(_asignacionMateria);
+        for(int i=0;i<cursos.length;i++){
+            if(cursos[i].equals(_asignacionCurso)){
+             this.asignacionCurso=_asignacionCurso;
+            }
+        }
+        
+    }
+    InteColegio(){
+        
+    }
+    
+    public String informarCurso(int contadorAct){
+         String respuesta="";
+         
+         respuesta = cursos[contadorAct];
+
+         return respuesta;
+     }
+     public void imprimirCurso(){
+        for (int i = 0; i < 10; i++) {
+            if(cursos[i]!=null && !cursos[i].equals("")){
+                System.out.println("Curso: "+cursos[i]);
+            }
+        }
+    }
+    public void agregarCurso(){
+        for(int i=getCantidadCursosCreados();i<cursos.length;i++){
+            cursos[i]=new String();
+        }
+        Scanner lecturaVar = new Scanner(System.in);
+        System.out.print("Digite el curso que desea agregar: ");
+        String cursoP;
+        int bandera=0;
+        cursoP = lecturaVar.nextLine();
+        
+        
+        for(int i=0;i<cursos.length;i++){
+            if(cursos[i].equals(cursoP)){
+                System.out.println("El curso ya se encuentra registrado.");
+                bandera=1;
+            }
+        }
+       
+        if(bandera==0){
+        cursos[getCantidadCursosCreados()] = cursoP;
+            setCantidadCursosCreados(getCantidadCursosCreados() + 1);
+        }
+        bandera=0;
+       
     }
     /**
-     * Se modifica el nombre de la persona
-     * @param nombre 
+     * @return the asignacionCurso
      */
-    public void setNombre (String nombre){
-        this.nombre = nombre;
+    public String getAsignacionCurso() {
+        return asignacionCurso;
     }
+
     /**
-     * Se modifica el apellido de la persona
-     * @param apellido 
+     * @param asignacionCurso the asignacionCurso to set
      */
-    public void setApellido(String apellido){
-        this.apellido = apellido;
+    public void setAsignacionCurso(String asignacionCurso) {
+        this.asignacionCurso = asignacionCurso;
     }
+
     /**
-     * Se modifica el nombre de la materia asignada a la persona
-     * @param materia 
+     * @return the cantidadCursosCreados
      */
-    public void setMateria (String materia){
-        this.materia = materia;
+    public int getCantidadCursosCreados() {
+        return cantidadCursosCreados;
     }
+
     /**
-     * Se modifica el codigo de la persona
-     * @param codigo 
+     * @param aCantidadCursosCreados the cantidadCursosCreados to set
      */
-    public void setCodigo(long codigo){
-        this.codigo = codigo;
+    public void setCantidadCursosCreados(int aCantidadCursosCreados) {
+        cantidadCursosCreados = aCantidadCursosCreados;
     }
-    /**
-     * Se modifican las notas dependiendo de la persona (Docente las notas a sacar / Estudiante las notas obtenidas)
-     * @param notas 
-     */
-    public void setNotas(int notas){
-        this.numNotas = notas;
-    }
-    /**
-     * Obtiene el nombre de la persona
-     * @return 
-     */
-    public String getNombre (){
-        return this.nombre;
-    }
-    /**
-     * Obtiene el apellido de la persona
-     * @return 
-     */
-    public String getApellido(){
-         return this.apellido;
-    }
-    /**
-     * Obtiene la materia asignada
-     * @return 
-     */
-    public String getMateria (){
-        return this.materia;
-    }
-    /**
-     * Obtiene el codigo de la persona
-     * @return 
-     */
-    public long getCodigo(){
-        return this.codigo;
-    }
-    /**
-     * Obtiene las notas obtenidas
-     * @return 
-     */
-    public int getNotas(){
-        return this.numNotas;
-    }
-    /**
-     * Lee el objeto para la Serialización
-     * @param stream
-     * @throws IOException
-     * @throws ClassNotFoundException 
-     */
-private void readObject(java.io.ObjectInputStream stream)
-     throws IOException, ClassNotFoundException
-{
-   // Aqui debemos leer los bytes de stream y reconstruir el objeto
-}
-/**
- * Escribe el objeto para la Serialización
- * @param stream
- * @throws IOException 
- */
-private void writeObject(java.io.ObjectOutputStream stream)
-     throws IOException
-{
-   // Aquí escribimos en stream los bytes que queramos que se envien por red.
-}
+    
 }

@@ -1,71 +1,173 @@
 package Principal;
-import java.io.*;
+import java.util.Scanner;
 /**
  * Permitira generar objetos estudiantes como clase hija de InteColegio
  * @author Camilo D'isidoro
  */
-public class Estudiante extends InteColegio implements Serializable{
-    private int nota;
-    private int notas[];
-    /**
-     * Constructor del Estudiante
-     * @param nombre
-     * @param apellido
-     * @param materia
-     * @param codigo
-     * @param numNotas
-     * @param nota 
-     */
-    public Estudiante(String nombre, String apellido, String materia, long codigo, int numNotas, int nota){
-        super(nombre, apellido, materia, codigo, numNotas);
-        this.nota = nota;
-    }
-    /**
-     * Asignación de materia
-     */
-    public void asigMateria(){
+ class Estudiante extends InteColegio{
+    
+    private String nombreAlumno = " ";
+    private int numeroNotas=1;
+    private float promedioNotas=0.0f;
+    private float notas[] = new float[1000];
+    static int cantidadAlumnosAgregados=0;
+    private static String alumnos[]=new String[50];
+   
+    Estudiante(){
         
     }
-    /**
-     * Asignación de promedio
-     */
-    public void promedio(){
+    Estudiante(String _asignacionMateria, String _asignacionCurso,String _nombreAlumno){
+        super(_asignacionMateria, _asignacionCurso);
+        this.nombreAlumno=_nombreAlumno;
+    }
+    public void asignarNumeroNotas(int _numeroNotas){
+        
+        setNumeroNotas(_numeroNotas);
+    }
+    
+    public void imprimirNotas(){
+        
+        for(int i=0;i<getNumeroNotas();i++){
+            System.out.println("Nota "+(1+i)+": "+notas[i]);
+        }
         
     }
-    /**
-     * Establece la cantidad de notas que tendra el estudiante
-     * @param nota 
-     */
-    public void setNota(int nota){
-        this.nota = nota;
+    public void calcularPromedio(){
+        float _promedioNotas=0.0f;
+        for (int i = 0; i < 10; i++) {
+            _promedioNotas=_promedioNotas+notas[i];
+        }
+        
+        _promedioNotas=_promedioNotas/getNumeroNotas();
+        setPromedioNotas(_promedioNotas);
     }
-    /**
-     * Obtiene la cantidad de notas que tendra el estudiante
-     * @return 
-     */
-    public int getNota(){
-        return this.nota;
+    //
+    public String informarAlumno(int contadorAct){
+         String respuesta="";
+         
+         respuesta = alumnos[contadorAct];
+
+         return respuesta;
+     }
+    //
+    public void actualizarAlumno(){
+        Files alumnos1=new Files(getNombreAlumno(),"Alumno");
+        for(int i=0;i<alumnos.length;i++){
+            alumnos[i]=new String();
+        }
+        int contadorAct=0;
+        cantidadAlumnosAgregados=0;
+        for(int i=0;i<alumnos.length;i++){
+            if(alumnos1.actualizar(i)!="Ninguno"){
+                alumnos[contadorAct]=alumnos1.actualizar(i);
+                contadorAct++;
+                cantidadAlumnosAgregados++;
+            }
+        }
     }
+    public void agregarAlumno(){
+        for(int i=cantidadAlumnosAgregados;i<alumnos.length;i++){
+            alumnos[i]=new String();
+        }
+        
+        //llenar maestros
+        Scanner lecturaVar = new Scanner(System.in);
+        System.out.print("Digite alumno que desea agregar: ");
+        String alumnoP1;
+        int bandera=0;
+        alumnoP1 = lecturaVar.nextLine();
+       
+        
+        
+        for(int i=0;i<alumnos.length;i++){
+            if(alumnos[i].equals(alumnoP1)){
+                System.out.println("El alumno ya se encuentra registrado.");
+                bandera=1;
+            }
+        }
+       
+        if(bandera==0){
+        alumnos[getCantidadCursosCreados()] = (alumnoP1);
+        cantidadAlumnosAgregados++;
+        
+        Files alumnos2=new Files(alumnoP1,"Alumno");
+        alumnos2.escribir();
+        System.out.println("El alumno ha sido agregado a la base de datos.");
+        }
+        bandera=0;
+    }
+    
+    public String eliminarAlumno(){
+        for(int i=cantidadAlumnosAgregados;i<alumnos.length;i++){
+            alumnos[i]=new String();
+        }
+        Scanner lecturaVar = new Scanner(System.in);
+        System.out.println("Digite alumno que desea eliminar: ");
+        String alumnoP2;
+        int bandera=1;
+        alumnoP2 = lecturaVar.nextLine();
+       
+        
+        
+        for(int i=0;i<alumnos.length;i++){
+            if(alumnos[i].equals(alumnoP2)){
+                System.out.println("El alumno se ha eliminado.");
+                bandera=0;
+            }
+        }
+       
+        if(bandera==0){
+        Files alumnos3=new Files(alumnoP2,"Alumno");
+            alumnos3.eliminar();
+            actualizarAlumno();
+        }else{
+            System.out.println("El alumno no se encuentra en la base de datos.");
+        }
+        bandera=1;
+        return alumnoP2;
+    }
+
     /**
-     * Lee el objeto para la Serialización
-     * @param stream
-     * @throws IOException
-     * @throws ClassNotFoundException 
+     * @return the nombreAlumno
      */
-    private void readObject(java.io.ObjectInputStream stream)
-     throws IOException, ClassNotFoundException
-{
-   // Aqui debemos leer los bytes de stream y reconstruir el objeto
-}
+    public String getNombreAlumno() {
+        return nombreAlumno;
+    }
+
     /**
-     * Escribe el objeto para la Serialización
-     * @param stream
-     * @throws IOException
-     * @throws ClassNotFoundException 
+     * @param nombreAlumno the nombreAlumno to set
      */
-private void writeObject(java.io.ObjectOutputStream stream)
-     throws IOException
-{
-   // Aquí escribimos en stream los bytes que queramos que se envien por red.
-}
+    public void setNombreAlumno(String nombreAlumno) {
+        this.nombreAlumno = nombreAlumno;
+    }
+
+    /**
+     * @return the numeroNotas
+     */
+    public int getNumeroNotas() {
+        return numeroNotas;
+    }
+
+    /**
+     * @param numeroNotas the numeroNotas to set
+     */
+    public void setNumeroNotas(int numeroNotas) {
+        this.numeroNotas = numeroNotas;
+    }
+
+    /**
+     * @return the promedioNotas
+     */
+    public float getPromedioNotas() {
+        return promedioNotas;
+    }
+
+    /**
+     * @param promedioNotas the promedioNotas to set
+     */
+    public void setPromedioNotas(float promedioNotas) {
+        this.promedioNotas = promedioNotas;
+    }
+
+    
 }
