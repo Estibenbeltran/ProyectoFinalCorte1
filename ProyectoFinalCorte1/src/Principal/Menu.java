@@ -41,19 +41,17 @@ public class Menu {
             alumnos[i]=new Estudiante();
         }
         do{//repeticion del menu de opciones
-        System.out.println(" ");
-        System.out.println("******* GESTION DE LISTAS *******");     
-        System.out.println(" ");        
-        System.out.println("1.Añadir y Eliminar");
-        System.out.println("2.Asignar Estudiante y Maestro");
-        System.out.println("3.Asignar Notas Estudiante");
-        System.out.println("4.Listado Alumnos por Materia");
-        System.out.println("5.Mostrar 5 Mejores Promedios");
-        System.out.println("6.Listado Docentes");
-        System.out.println(" ");
-        System.out.println("*********************************");                           
-        System.out.println(" "); 
-        System.out.print("R:/ ");                          
+        System.out.println("");
+        System.out.println("--------------------------------------------");
+        System.out.println("|       Ingresa una opcion                 |");         
+        System.out.println("|1.Añadir y Eliminar (Estudiante y Docente)|");
+        System.out.println("|2.Asignar Estudiante y Maestro            |");
+        System.out.println("|3.Asignar Notas Estudiante                |");
+        System.out.println("|4.Listado Alumnos por Materia             |");
+        System.out.println("|5.Mostrar 5 Mejores Promedios             |");
+        System.out.println("|6.Listado Docentes                        |"); 
+        System.out.println("--------------------------------------------");                           
+        System.out.println(" ");                         
                                    
         
         opcionMenu = lecturaVar.nextByte();//escaneo del dato del menu del usuario
@@ -62,19 +60,17 @@ public class Menu {
             case 1:
                 do{//repeticion del menu de opciones
                 System.out.println(" ");
-                System.out.println("******* AÑADIR Y ELIMINAR *******");     
-                System.out.println(" ");     
-                System.out.println("1.Añadir Alumno");
-                System.out.println("2.Eliminar Alumno");
-                System.out.println("3.Añadir Maestro");
-                System.out.println("4.Eliminar Maestro");
-                System.out.println("5.Añadir Materia");
-                System.out.println("6.Añadir Curso");
-                System.out.println("7.Volver");
-                System.out.println(" ");
-                System.out.println("*********************************");                           
+                System.out.println("-----------------------------");
+                System.out.println("|       AÑADIR Y ELIMINAR   |");    
+                System.out.println("|1.Añadir Estudiante        |");
+                System.out.println("|2.Eliminar Estudiante      |");
+                System.out.println("|3.Añadir Docente           |");
+                System.out.println("|4.Eliminar Docente         |");
+                System.out.println("|5.Añadir Materia           |");
+                System.out.println("|6.Añadir Curso             |");
+                System.out.println("|7.Volver                   |"); 
+                System.out.println("-----------------------------");                           
                 System.out.println(" "); 
-                System.out.print("R:/ ");
                 opcionMenu = lecturaVar.nextByte();//escaneo del dato del menu del usuario
                 switch(opcionMenu){
 
@@ -143,8 +139,8 @@ public class Menu {
                                 
                 do{//repeticion del menu de opciones
 
-                        System.out.println("1.Asignar Alumno");
-                        System.out.println("2.Asignar Maestro");
+                        System.out.println("1.Establecer Alumno");
+                        System.out.println("2.Establecer Maestro");
                         System.out.println("3.Volver");
 
                         opcionMenu = lecturaVar.nextByte();//escaneo del dato del menu del usuario
@@ -156,17 +152,17 @@ public class Menu {
                                 if(getTotalAlumnos()!=0){
                                     Files archivo21= new Files("Alumno");
                                     System.out.println(" ");
-                                    System.out.println("******* ALUMNOS *******");
+                                    System.out.println("    Cantidad de Estudiantes");
                                     System.out.println(" ");
                                     archivo21.imprimir();
                                     System.out.println(" ");
-                                    System.out.println("************************");
+                                    System.out.println("----------------------");
 
                                     String respuestaDatosPersona=" ";
                                     String asignarPersona=" ";
                                     boolean existePersona=false;
 
-                                    System.out.print("Digita el alumno al que deseas asignar:");
+                                    System.out.print("Estudiante al que desea asignar:");
                                     asignarPersona=lecturaVar.nextLine();
                                     asignarPersona=lecturaVar.nextLine();
 
@@ -187,12 +183,12 @@ public class Menu {
                                         setTotalMaterias(materia.getCantidadMateriasCreadas());
                                         if(getTotalMaterias()!=0){
                                             System.out.println(" ");
-                                            System.out.println("******* MATERIAS *******");
+                                            System.out.println("Cantidad de materias");
                                             System.out.println(" ");
                                             materia.imprimirMateria();
                                             System.out.println(" ");
-                                            System.out.println("************************");
-                                            System.out.print("Digita la materia que desea asignar:");
+                                            System.out.println("---------------------");
+                                            System.out.print("Materia que desea asignar:");
                                             asignarMateria=lecturaVar.nextLine();
                                             for (int o = 0; o < getTotalMaterias(); o++) {
                                                 respuestaDatosMateria=materia.informarMateria(o);
@@ -209,12 +205,12 @@ public class Menu {
                                                 setTotalCursos(curso.getCantidadCursosCreados());
                                                 if(getTotalCursos()!=0){
                                                     System.out.println(" ");
-                                                    System.out.println("******* CURSOS *******");
+                                                    System.out.println(" Cantidad de cursos");
                                                     System.out.println(" ");
                                                     curso.imprimirCurso();
                                                     System.out.println(" ");
-                                                    System.out.println("************************");
-                                                    System.out.print("Digita el curso que desea asignar:");
+                                                    System.out.println("--------------------");
+                                                    System.out.print("curso que desea asignar:");
                                                     asignarCurso=lecturaVar.nextLine();
                                                     for (int p = 0; p < getTotalCursos(); p++) {
                                                         respuestaDatosCurso=curso.informarCurso(p);
@@ -272,17 +268,17 @@ public class Menu {
                                 if(getTotalMaestros()!=0){
                                     Files archivo22= new Files("Maestro");
                                     System.out.println(" ");
-                                    System.out.println("******* MAESTROS *******");
+                                    System.out.println("   Docentes encontrados ");
                                     System.out.println(" ");
                                     archivo22.imprimir();
                                     System.out.println(" ");
-                                    System.out.println("************************");
+                                    System.out.println("------------------------");
 
                                     String respuestaDatosPersona=" ";
                                     String asignarPersona=" ";
                                     boolean existePersona=false;
 
-                                    System.out.print("Digita el maestro al que deseas asignar:");
+                                    System.out.print("docente que deseas asignar:");
                                     asignarPersona=lecturaVar.nextLine();
                                     asignarPersona=lecturaVar.nextLine();
 
@@ -303,12 +299,12 @@ public class Menu {
                                         setTotalMaterias(materia.getCantidadMateriasCreadas());
                                         if(getTotalMaterias()!=0){
                                             System.out.println(" ");
-                                            System.out.println("******* MATERIAS *******");
+                                            System.out.println(" Cantidad de materias");
                                             System.out.println(" ");
                                             materia.imprimirMateria();
                                             System.out.println(" ");
-                                            System.out.println("************************");
-                                            System.out.print("Digita la materia que desea asignar:");
+                                            System.out.println("----------------");
+                                            System.out.print("materia que desea asignar:");
                                             asignarMateria=lecturaVar.nextLine();
                                             for (int o = 0; o < getTotalMaterias(); o++) {
                                                 respuestaDatosMateria=materia.informarMateria(o);
@@ -325,12 +321,12 @@ public class Menu {
                                                 setTotalCursos(curso.getCantidadCursosCreados());
                                                 if(getTotalCursos()!=0){
                                                     System.out.println(" ");
-                                                    System.out.println("******* CURSOS *******");
+                                                    System.out.println("Cantidad de cursos ");
                                                     System.out.println(" ");
                                                     curso.imprimirCurso();
                                                     System.out.println(" ");
-                                                    System.out.println("************************");
-                                                    System.out.print("Digita el curso que desea asignar:");
+                                                    System.out.println("--------------------");
+                                                    System.out.print("curso que desea asignar:");
                                                     asignarCurso=lecturaVar.nextLine();
                                                     for (int p = 0; p < getTotalCursos(); p++) {
                                                         respuestaDatosCurso=curso.informarCurso(p);
@@ -351,30 +347,30 @@ public class Menu {
                                                             maestros[getCantidadObjetosMaestros()]=new Docente(asignarMateria, asignarCurso, asignarPersona);
                                                             setCantidadObjetosMaestros(getCantidadObjetosMaestros()+1);
                                                         }else{
-                                                            System.out.println("Al maestro ya se le ha asignado este curso con esta materia.");
+                                                            System.out.println("Al maestro ya se le ha asignado este curso con esta materia");
                                                         }
 
                                                     }else{
-                                                        System.out.println("El curso ingresado no se encuentra en el sistema.");
+                                                        System.out.println("El curso ingresado no se encuentra ");
                                                     }
 
                                                 }else{
-                                                   System.out.println("No hay cursos para asignar."); 
+                                                   System.out.println("No hay cursos para asignar"); 
                                                 }
                                             }else{
-                                                System.out.println("La materia ingresada no se encuentra en el sistema.");
+                                                System.out.println("La materia ingresada no se encuentra");
                                             }
 
                                         }else{
-                                           System.out.println("No hay materias para asignar."); 
+                                           System.out.println("No hay materias para asignar"); 
                                         }
 
                                     }else{
-                                        System.out.println("La persona ingresada no se encuentra en el sistema.");
+                                        System.out.println("La persona ingresada no se encuentra ");
                                     }
 
                                 }else{
-                                   System.out.println("No hay maestros para asignar."); 
+                                   System.out.println("No hay maestros para asignar"); 
                                 }
                                break;
 
@@ -384,7 +380,7 @@ public class Menu {
 
                             default:
                                 //opcion no valida del menu.
-                                System.out.println("La opcion no es valida.");
+                                System.out.println("La opcion no es valida");
                                 break;
                         }
 
@@ -394,11 +390,120 @@ public class Menu {
                break;
 
             case 3:
-                
-                
-                
+               alumno.actualizarAlumno();
+                setTotalAlumnos(alumno.cantidadAlumnosAgregados);
+                String nombreModificarAlumno=" ";
+                String materiaModificarAlumno=" ";
+                String cursoModificarAlumno=" ";
+                boolean encontrado31=false;
+                if(getCantidadObjetosAlumnos()!=0){
+                    System.out.println(" ");
+                    System.out.println("Cantidad de estudiantes");
+                    System.out.println(" ");
+                    System.out.println("");
+                    for (int i = 0; i < getCantidadObjetosAlumnos(); i++) {
+                        if(alumnos[i].getNombreAlumno()!="none"){
+                            System.out.println("Nombre: \n"+alumnos[i].getNombreAlumno());
+                            System.out.println("Materia: \n"+alumnos[i].getAsignacionMateria());
+                            System.out.println("Curso:\n "+alumnos[i].getAsignacionCurso());
+                            System.out.println("---------------------");
+                        }
+                    }
+                    System.out.println("----------------------------");
+                    System.out.print("Nombre del estudiante que desea modificar:\n");
+                    nombreModificarAlumno=lecturaVar.nextLine();
+                    nombreModificarAlumno=lecturaVar.nextLine();
+                    System.out.print("Materia del estudiante que desea modificar:\n");
+                    materiaModificarAlumno=lecturaVar.nextLine();
+                    System.out.print("Curso del estudiante que desea modificar:\n");
+                    cursoModificarAlumno=lecturaVar.nextLine();
+                    
+                    for (int u = 0; u < getCantidadObjetosAlumnos(); u++) {
+                        if((nombreModificarAlumno.equals(alumnos[u].getNombreAlumno())) && (materiaModificarAlumno.equals(alumnos[u].getAsignacionMateria())) && (cursoModificarAlumno.equals(alumnos[u].getAsignacionCurso()))){
+                            
+                            System.out.println(" ");
+                            System.out.println("Notas del alumno");
+                            System.out.println(" ");
+                            System.out.println("Nombre: \n"+alumnos[u].getNombreAlumno());
+                            System.out.println("Materia: \n"+alumnos[u].getAsignacionMateria());
+                            System.out.println("Curso: \n"+alumnos[u].getAsignacionCurso());
+                            System.out.println("Numero de Notas: \n"+alumnos[u].getNumeroNotas());
+                            alumnos[u].imprimirNotas();
+                            alumnos[u].calcularPromedio();
+                            System.out.println("Nota Final: \n"+alumnos[u].getPromedioNotas());
+                            System.out.println(" ");
+                            System.out.println("-------------------------------");
+                            System.out.println(" ");
+                            
+                            do{//repeticion del menu de opciones
+                                System.out.println(" ");
+                                System.out.println("Realizar modificacion");        
+                                System.out.println("1.Modificar Cantidad de Notas");
+                                System.out.println("2.Modificar Notas");
+                                System.out.println("3.Regresar");
+                                System.out.println(" ");
+                                System.out.println("-------------------------------");                           
+                                System.out.println(" "); 
+                                System.out.print("R:/ ");
+                                opcionMenu = lecturaVar.nextByte();//escaneo del dato del menu del usuario
+                                switch(opcionMenu){
+
+                                    case 1:
+                                        int cantidadModificarNotas=0;
+                                        System.out.print("Cantidad de notas a sacar por estudiante: \n");
+                                        cantidadModificarNotas=lecturaVar.nextInt();
+                                        if(cantidadModificarNotas > alumnos[u].getNumeroNotas()){
+                                            alumnos[u].asignarNumeroNotas(cantidadModificarNotas);
+                                        }else{
+                                            System.out.println("notas entre 1,0 a 5,0\n");
+                                        }
+
+                                        break;
+
+                                    case 2:
+                                        int numeroNotaModificar=0;
+                                        float nuevaCalificacion=0.0f;
+                                        System.out.print("Numero de la nota que desea modificar: \n");
+                                        numeroNotaModificar=lecturaVar.nextInt();
+                                        if(numeroNotaModificar<=alumnos[u].getNumeroNotas()&&numeroNotaModificar>0){
+                                            System.out.print("Calificacion nueva: \n");
+                                            nuevaCalificacion=lecturaVar.nextFloat();
+                                            if((nuevaCalificacion<=(float)(5.0)) && (nuevaCalificacion>=0)){
+                                                alumnos[u].notas[(numeroNotaModificar-1)]=nuevaCalificacion;
+                                            }else{
+                                                System.out.println("Calificacion no valida.");
+                                            }
+                                        }
+                                       break;
+
+                                    case 3:
+                                        
+                                       break;
+                                       
+                                    default:
+                                        //opcion no valida del menu.
+                                        System.out.println("La opcion no es valida.");
+                                        break;
+                                }
+
+                                }while(opcionMenu!=3);
+                                opcionMenu=0;
+                            
+                            //
+                            u=getCantidadObjetosAlumnos();
+                            encontrado31=true;
+                        }
+                    }
+                    if(encontrado31==false){
+                        System.out.println("El estudiante no se encuentra ");
+                    }
+                }else{
+                    System.out.println(" ");
+                    System.out.println("No hay estudiantes, por favor primero ingresa estudiantes");
+                }
         
                break;
+
 
             case 4:
                 alumno.actualizarAlumno();
@@ -409,12 +514,12 @@ public class Menu {
                 setTotalMaterias(materia.getCantidadMateriasCreadas());
                 if(getTotalMaterias()!=0){
                     System.out.println(" ");
-                    System.out.println("******* MATERIAS *******");
+                    System.out.println("Cantidad de materias");
                     System.out.println(" ");
                     materia.imprimirMateria();
                     System.out.println(" ");
-                    System.out.println("************************");
-                    System.out.print("Digita la materia que desea listar:");
+                    System.out.println("-------------------------");
+                    System.out.print("Materia que desea listar:");
                     materiaListar=lecturaVar.nextLine();
                     materiaListar=lecturaVar.nextLine();
                     for (int p = 0; p < getTotalMaterias(); p++) {
@@ -426,30 +531,30 @@ public class Menu {
                     
                     if(materiaListaExiste==true){
                         System.out.println(" ");
-                        System.out.println("******* ESTUDIANTES *******");
+                        System.out.println("Cantidad de estudiantes");
                         System.out.println(" ");
-                        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                        System.out.println("------------------------");
                         for (int i = 0; i < getCantidadObjetosAlumnos(); i++) {
                             if(!alumnos[i].equals(null)){
                                 if(materiaListar.equals(alumnos[i].getAsignacionMateria())){
-                                    System.out.println("Nombre: "+alumnos[i].getNombreAlumno());
-                                    System.out.println("Curso: "+alumnos[i].getAsignacionCurso());
+                                    System.out.println("Nombre: \n"+alumnos[i].getNombreAlumno());
+                                    System.out.println("Curso: \n"+alumnos[i].getAsignacionCurso());
                                     alumnos[i].imprimirNotas();
                                     alumnos[i].calcularPromedio();
-                                    System.out.println("Nota Final: "+alumnos[i].getPromedioNotas());
+                                    System.out.println("Nota Final: \n"+alumnos[i].getPromedioNotas());
                                 }
                                 
                             }
-                            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                            System.out.println("----------------------");
                             System.out.println(" ");
                         }
                         System.out.println(" ");
-                        System.out.println("************************");
+                        System.out.println("------------------------");
                     }else{
-                        System.out.println("La materia ingresada no se encuentra en el sistema.");
+                        System.out.println("La materia ingresada no se encuentra");
                     }
                 }else{
-                    System.out.println("No hay materias en el sistema.");
+                    System.out.println("No hay materias");
                 }
                break;
 
@@ -497,7 +602,7 @@ public class Menu {
                     }
                 }
                 System.out.println(" ");
-                System.out.println("******* PROMEDIOS *******");
+                System.out.println("Cantidad de promedios");
                 System.out.println(" ");
                 System.out.println("Nota 1: "+nota1);
                 System.out.println("Nombre: "+nombre1);
@@ -514,7 +619,7 @@ public class Menu {
                 System.out.println("Nota 5: "+nota5);
                 System.out.println("Nombre: "+nombre5);
                 System.out.println(" ");
-                System.out.println("*************************");
+                System.out.println("-----------------------");
                 System.out.println(" ");
                 break;
             case 6:
@@ -522,9 +627,9 @@ public class Menu {
                 setTotalMaestros(maestro.cantidadMaestrosAgregados);
                     
                     System.out.println(" ");
-                    System.out.println("******* LISTADO MAESTROS *******");
+                    System.out.println("Lista de maestros");
                     System.out.println(" ");
-                    System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                    System.out.println("-------------------------");
                     for (int i = 0; i < getTotalMaestros(); i++) {
                        
                         System.out.println("Nombre: " + maestro.informarMaestro(i));
@@ -533,11 +638,11 @@ public class Menu {
                                 System.out.println("Materia: "+maestros[j].getAsignacionMateria()+" - Curso: "+maestros[j].getAsignacionCurso());
                             }
                         }
-                        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                        System.out.println("-----------------------");
                     }
                     
                     System.out.println(" ");
-                    System.out.println("************************");
+                    System.out.println("-----------------------");
                 break;
             default:
                 //opcion no valida del menu.

@@ -69,7 +69,7 @@ public class Docente extends InteColegio{
         
         Files maestros2=new Files(maestroP1,"Maestro");
         maestros2.escribir();
-        System.out.println("El maestro ha sido agregado a la base de datos.");
+        System.out.println("El maestro ha sido agregado");
         }
         bandera=0;
     }
@@ -97,7 +97,7 @@ public class Docente extends InteColegio{
             alumnos3.eliminar();
             actualizarMaestro();
         }else{
-            System.out.println("El maestro no se encuentra en la base de datos.");
+            System.out.println("El maestro no se encuentra");
         }
         bandera=1;
         return maestroP2;

@@ -5,3 +5,11 @@ Fernel&Maestro
 Alex&Maestro
 Estiben&Alumno
 Pepito&Alumno
+Pedro&Alumno
+Dairo&Alumno
+ana&Alumno
+Stiven&Maestro
+omar&Alumno
+beto&Maestro
+belto&Alumno
+carlos&Maestro
