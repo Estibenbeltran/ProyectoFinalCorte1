@@ -1,7 +1,7 @@
 package Principal;
 import java.util.Scanner;
 /**
- * Permitira inicializar las personas Integrantes del Colegio como la clase padre
+ * Permitira gestionar los cursos y en general sera clase padre
  * @author Camilo D'isidoro
  */
 public class InteColegio extends Materia{

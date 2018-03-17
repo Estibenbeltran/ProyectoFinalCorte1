@@ -1,7 +1,7 @@
 package Principal;
 import java.util.Scanner;
 /**
- *
+ *Permitira gestionar la creacion de materias
  * @author daiyd
  */
 public class Materia{

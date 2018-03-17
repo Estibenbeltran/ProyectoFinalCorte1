@@ -1,7 +1,7 @@
 package Principal;
 import java.util.Scanner;
 /**
- * Permitira generar objetos estudiantes como clase hija de InteColegio
+ * Permitira gestionar los datos de estudiantes siendo clase hija
  * @author Camilo D'isidoro
  */
  class Estudiante extends InteColegio{

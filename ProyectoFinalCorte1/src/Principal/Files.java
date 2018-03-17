@@ -1,13 +1,14 @@
 package Principal;
 
 /**
- *
+ * Permitira la gestion de los archivos
  * @author daiyd
  */
 import java.io.*;
 import java.io.File;
 import java.io.FileReader;
 public class Files {
+    
     private String primerParametro = " ";
     private String segundoParametro = " ";
     
